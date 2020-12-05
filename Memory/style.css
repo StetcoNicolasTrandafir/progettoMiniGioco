@@ -1,0 +1,47 @@
+*{
+    user-select: none;
+}
+
+.cellaGrigia{
+    width: 40px;
+    height: 40px;
+    color: gainsboro;
+    background-color: gainsboro;
+    margin: 1px;
+}
+
+.cellaGrigia:hover{
+    background-color:gray;
+    color: gray;
+}
+
+.cellaRossa{
+    width: 40px;
+    height: 40px;
+    color: grey;
+    background-color: red;
+    margin: 1px;
+}
+.cellaBlu{
+    width: 40px;
+    height: 40px;
+    color: grey;
+    background-color: blue;
+    margin: 1px;
+}
+
+.Personaggio{
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.Personaggio:hover{
+    box-shadow: 5px 5px 5px rgb(15, 159, 255);
+}
+
+.avatar:hover{
+    box-shadow: 10px 10px 10px rgb(255, 15, 223);
+}
+
