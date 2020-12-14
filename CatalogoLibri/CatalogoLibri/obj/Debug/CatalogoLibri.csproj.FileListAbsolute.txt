@@ -1,0 +1,50 @@
+C:\Users\Utente\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.exe.config
+C:\Users\Utente\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.exe
+C:\Users\Utente\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.pdb
+C:\Users\Utente\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.csprojAssemblyReference.cache
+C:\Users\Utente\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.Form1.resources
+C:\Users\Utente\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.Properties.Resources.resources
+C:\Users\Utente\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.csproj.GenerateResource.cache
+C:\Users\Utente\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.exe
+C:\Users\Utente\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.pdb
+C:\Users\Utente\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.frmGestioneAnagrafica.resources
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.exe.config
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.exe
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.pdb
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.csprojAssemblyReference.cache
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.Form1.resources
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.frmGestioneAnagrafica.resources
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.Properties.Resources.resources
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.csproj.GenerateResource.cache
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.csproj.CoreCompileInputs.cache
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.exe
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.pdb
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.csprojAssemblyReference.cache
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.Form1.resources
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.frmAutori.resources
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.frmCatalogo.resources
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.Properties.Resources.resources
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.csproj.GenerateResource.cache
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.csproj.CoreCompileInputs.cache
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.exe
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.pdb
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.exe.config
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.exe
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.pdb
+C:\Users\stetc\OneDrive\Desktop\Carena_CatalogoLibri - Copia\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.frmReparti.resources
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.csprojAssemblyReference.cache
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.Form1.resources
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.frmAutori.resources
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.frmCatalogo.resources
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.frmEditori.resources
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.frmReparti.resources
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.Properties.Resources.resources
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.csproj.GenerateResource.cache
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.csproj.CoreCompileInputs.cache
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.exe.config
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.exe
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\bin\Debug\CatalogoLibri.pdb
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.exe
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.pdb
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.frmOfferte.resources
+C:\Users\stetc\OneDrive\Desktop\STETCO_CatalogoLibri\CatalogoLibri\CatalogoLibri\obj\Debug\CatalogoLibri.frmLibri.resources
