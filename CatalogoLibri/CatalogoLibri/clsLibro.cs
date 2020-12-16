@@ -25,7 +25,6 @@ namespace CatalogoLibri
         private adoNetSQL sqlLibri;
         private DataTable tabellaLibri = new DataTable();
 
-
         public int codLibro
         {
             get { return _codLibro; }
@@ -166,14 +165,72 @@ namespace CatalogoLibri
             return tabellaLibri;
         }
 
+        public DataTable tabella(char validita)
+        {
+            string strValidita = "('')";
+
+            tabellaLibri.Clear();
+
+            if (validita == 'A')
+                strValidita = "('', 'A')";
+
+            sql = "SELECT Libri.IdLibro, Libri.TitoloLibro, Libri.DataLibro, Reparti.DesReparto, Libri.PrezzoLibro, Offerte.DesOfferta, Editori.NomeEditore " +
+                "FROM Libri " +
+                "INNER JOIN Reparti ON (CodRepLibro = CodReparto) " +
+                "INNER JOIN Editori ON (IdEdiLibro = IdEditore) " +
+                "INNER JOIN Offerte ON (IdOffLibro = IdOfferta AND ValLibro IN " + strValidita + ")";
+            try
+            {
+                tabellaLibri = sqlLibri.eseguiQuery(sql, CommandType.Text);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Attenzione!! [lista]" + e.Message);
+            }
+
+
+            return tabellaLibri;
+        }
+
+
+        public DataTable hasWritten(char validita, int codAutore)
+        {
+            string strValidita = "('')";
+
+            tabellaLibri.Clear();
+
+            if (validita == 'A')
+                strValidita = "('', 'A')";
+
+
+            sql = "SELECT Libri.IdLibro, Libri.TitoloLibro, Libri.DataLibro, Reparti.DesReparto, Libri.PrezzoLibro, Offerte.DesOfferta, Editori.NomeEditore " +
+                "FROM Libri " +
+                "INNER JOIN Reparti ON (CodRepLibro = CodReparto) " +
+                "INNER JOIN Editori ON (IdEdiLibro = IdEditore) " +
+                "INNER JOIN Scrive ON (IdAutScrive = "+codAutore+" and IdLibro= IdLibScrive) " +
+                "INNER JOIN Offerte ON (IdOffLibro = IdOfferta )";
+            try
+            {
+                tabellaLibri = sqlLibri.eseguiQuery(sql, CommandType.Text);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Attenzione!! [lista]" + e.Message);
+            }
+
+
+            return tabellaLibri;
+        }
 
         public DataTable filtra(string filtro)
         {
             string strValidita = "('')";
 
-            sql = "SELECT * " +
+            sql = "SELECT Libri.IdLibro, Libri.TitoloLibro, Libri.DataLibro, Reparti.DesReparto, Libri.PrezzoLibro, Offerte.DesOfferta, Editori.NomeEditore " +
                 "FROM Libri " +
-                "WHERE ValLibro IN " + strValidita+filtro;
+                "INNER JOIN Reparti ON (CodRepLibro = CodReparto) " +
+                "INNER JOIN Editori ON (IdEdiLibro = IdEditore) " +
+                "INNER JOIN Offerte ON (IdOffLibro = IdOfferta AND ValLibro IN " + strValidita + filtro+")";
             try
             {
                 tabellaLibri = sqlLibri.eseguiQuery(sql, CommandType.Text);
@@ -197,7 +254,7 @@ namespace CatalogoLibri
                 // int codice = getNuovoCodice();
 
                 sql = "INSERT INTO Libri " +
-                        "( TitoloLibro, ImgLibro, DataLibro, CodOffLibro, CodRepLibro, CodEdiLibro, PrezzoLibro, ValAutore) " +
+                        "( TitoloLibro, ImgLibro, DataLibro, IdOffLibro, CodRepLibro, IdEdiLibro, PrezzoLibro, ValLibro) " +
                         "VALUES(" + "'" + _titolo + "'," +
                                     "'" + _imgLibro + "'," +
                                     "'" + _dataPubblicazione.ToString("MM/dd/yyyy") + "'," +
@@ -235,7 +292,7 @@ namespace CatalogoLibri
 
             sql = "SELECT COUNT(*) AS TOTALE " +
                 "FROM Libri " +
-                "WHERE UPPER(TitoloLibro) = '" + _titolo.ToUpper() + "' AND DataLibro=" + _dataPubblicazione.ToString("MM/dd/yyyy"); ;
+                "WHERE UPPER(TitoloLibro) = '" + _titolo.ToUpper() + "' AND DataLibro='" + _dataPubblicazione.ToString("MM/dd/yyyy")+"'"; 
 
             try
             {
@@ -278,6 +335,10 @@ namespace CatalogoLibri
                 sqlLibri.eseguiNonQuery(sql, CommandType.Text);
                 esito = true;
                 MessageBox.Show("Libro modificato con successo.");
+
+                clsScrive s = new clsScrive("CatalogoLibri.mdf");
+
+                s.dispose();
             }
             catch (Exception e)
             {

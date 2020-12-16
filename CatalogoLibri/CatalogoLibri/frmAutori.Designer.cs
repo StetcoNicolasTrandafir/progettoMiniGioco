@@ -35,6 +35,7 @@ namespace CatalogoLibri
             this.btnInserisci = new System.Windows.Forms.Button();
             this.dgvAutori = new System.Windows.Forms.DataGridView();
             this.grpModifica = new System.Windows.Forms.GroupBox();
+            this.btnImmagine = new System.Windows.Forms.Button();
             this.btnAnnulla = new System.Windows.Forms.Button();
             this.btnConferma = new System.Windows.Forms.Button();
             this.ptbImmagine = new System.Windows.Forms.PictureBox();
@@ -49,7 +50,6 @@ namespace CatalogoLibri
             this.txtDescrizione = new System.Windows.Forms.TextBox();
             this.lblCodice = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnImmagine = new System.Windows.Forms.Button();
             this.grpElenco.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutori)).BeginInit();
             this.grpModifica.SuspendLayout();
@@ -134,6 +134,16 @@ namespace CatalogoLibri
             this.grpModifica.TabStop = false;
             this.grpModifica.Text = "Modifica";
             // 
+            // btnImmagine
+            // 
+            this.btnImmagine.Location = new System.Drawing.Point(42, 376);
+            this.btnImmagine.Name = "btnImmagine";
+            this.btnImmagine.Size = new System.Drawing.Size(105, 50);
+            this.btnImmagine.TabIndex = 34;
+            this.btnImmagine.Text = "Scegli immagine";
+            this.btnImmagine.UseVisualStyleBackColor = true;
+            this.btnImmagine.Click += new System.EventHandler(this.btnImmagine_Click);
+            // 
             // btnAnnulla
             // 
             this.btnAnnulla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -161,8 +171,11 @@ namespace CatalogoLibri
             this.ptbImmagine.Location = new System.Drawing.Point(174, 367);
             this.ptbImmagine.Name = "ptbImmagine";
             this.ptbImmagine.Size = new System.Drawing.Size(197, 161);
+            this.ptbImmagine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbImmagine.TabIndex = 31;
             this.ptbImmagine.TabStop = false;
+            this.ptbImmagine.MouseEnter += new System.EventHandler(this.ptbImmagine_MouseEnter);
+            this.ptbImmagine.MouseLeave += new System.EventHandler(this.ptbImmagine_MouseLeave);
             // 
             // dtpDataNascita
             // 
@@ -256,16 +269,6 @@ namespace CatalogoLibri
             this.label1.Size = new System.Drawing.Size(55, 17);
             this.label1.TabIndex = 19;
             this.label1.Text = "Codice:";
-            // 
-            // btnImmagine
-            // 
-            this.btnImmagine.Location = new System.Drawing.Point(42, 376);
-            this.btnImmagine.Name = "btnImmagine";
-            this.btnImmagine.Size = new System.Drawing.Size(105, 50);
-            this.btnImmagine.TabIndex = 34;
-            this.btnImmagine.Text = "Scegli immagine";
-            this.btnImmagine.UseVisualStyleBackColor = true;
-            this.btnImmagine.Click += new System.EventHandler(this.btnImmagine_Click);
             // 
             // frmAutori
             // 

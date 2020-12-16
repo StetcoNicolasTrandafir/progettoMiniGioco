@@ -30,6 +30,13 @@ namespace CatalogoLibri
         private void InitializeComponent()
         {
             this.grpElenco = new System.Windows.Forms.GroupBox();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
+            this.rdbReparto = new System.Windows.Forms.RadioButton();
+            this.rdbOfferta = new System.Windows.Forms.RadioButton();
+            this.rdbEditore = new System.Windows.Forms.RadioButton();
+            this.rdbAutore = new System.Windows.Forms.RadioButton();
             this.cmbLibri = new System.Windows.Forms.ComboBox();
             this.dgvLibri = new System.Windows.Forms.DataGridView();
             this.cmbReparto = new System.Windows.Forms.ComboBox();
@@ -42,6 +49,10 @@ namespace CatalogoLibri
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.grpModifica = new System.Windows.Forms.GroupBox();
+            this.ckbValidita = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lblPrezzo = new System.Windows.Forms.Label();
             this.cmbEditori = new System.Windows.Forms.ComboBox();
             this.ptbImmagine = new System.Windows.Forms.PictureBox();
             this.dtpDataPubblicazione = new System.Windows.Forms.DateTimePicker();
@@ -51,16 +62,6 @@ namespace CatalogoLibri
             this.label2 = new System.Windows.Forms.Label();
             this.lblCodice = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblPrezzo = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.rdbAutore = new System.Windows.Forms.RadioButton();
-            this.rdbEditore = new System.Windows.Forms.RadioButton();
-            this.rdbOfferta = new System.Windows.Forms.RadioButton();
-            this.rdbReparto = new System.Windows.Forms.RadioButton();
-            this.cmbFiltro = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lblFiltro = new System.Windows.Forms.Label();
             this.grpElenco.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibri)).BeginInit();
             this.grpModifica.SuspendLayout();
@@ -83,7 +84,81 @@ namespace CatalogoLibri
             this.grpElenco.Size = new System.Drawing.Size(790, 638);
             this.grpElenco.TabIndex = 28;
             this.grpElenco.TabStop = false;
-            this.grpElenco.Text = "Elenco autori";
+            this.grpElenco.Text = "Elenco";
+            // 
+            // lblFiltro
+            // 
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Location = new System.Drawing.Point(446, 586);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(0, 17);
+            this.lblFiltro.TabIndex = 31;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(21, 559);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(68, 17);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Filtra per:";
+            // 
+            // cmbFiltro
+            // 
+            this.cmbFiltro.FormattingEnabled = true;
+            this.cmbFiltro.Location = new System.Drawing.Point(586, 579);
+            this.cmbFiltro.Name = "cmbFiltro";
+            this.cmbFiltro.Size = new System.Drawing.Size(182, 24);
+            this.cmbFiltro.TabIndex = 29;
+            this.cmbFiltro.SelectedIndexChanged += new System.EventHandler(this.cmbFiltro_SelectedIndexChanged);
+            // 
+            // rdbReparto
+            // 
+            this.rdbReparto.AutoSize = true;
+            this.rdbReparto.Location = new System.Drawing.Point(294, 582);
+            this.rdbReparto.Name = "rdbReparto";
+            this.rdbReparto.Size = new System.Drawing.Size(80, 21);
+            this.rdbReparto.TabIndex = 28;
+            this.rdbReparto.TabStop = true;
+            this.rdbReparto.Text = "Reparto";
+            this.rdbReparto.UseVisualStyleBackColor = true;
+            this.rdbReparto.CheckedChanged += new System.EventHandler(this.rdbReparto_CheckedChanged);
+            // 
+            // rdbOfferta
+            // 
+            this.rdbOfferta.AutoSize = true;
+            this.rdbOfferta.Location = new System.Drawing.Point(112, 582);
+            this.rdbOfferta.Name = "rdbOfferta";
+            this.rdbOfferta.Size = new System.Drawing.Size(73, 21);
+            this.rdbOfferta.TabIndex = 27;
+            this.rdbOfferta.TabStop = true;
+            this.rdbOfferta.Text = "Offerta";
+            this.rdbOfferta.UseVisualStyleBackColor = true;
+            this.rdbOfferta.CheckedChanged += new System.EventHandler(this.rdbOfferta_CheckedChanged);
+            // 
+            // rdbEditore
+            // 
+            this.rdbEditore.AutoSize = true;
+            this.rdbEditore.Location = new System.Drawing.Point(204, 582);
+            this.rdbEditore.Name = "rdbEditore";
+            this.rdbEditore.Size = new System.Drawing.Size(74, 21);
+            this.rdbEditore.TabIndex = 26;
+            this.rdbEditore.TabStop = true;
+            this.rdbEditore.Text = "Editore";
+            this.rdbEditore.UseVisualStyleBackColor = true;
+            this.rdbEditore.CheckedChanged += new System.EventHandler(this.rdbEditore_CheckedChanged);
+            // 
+            // rdbAutore
+            // 
+            this.rdbAutore.AutoSize = true;
+            this.rdbAutore.Location = new System.Drawing.Point(18, 582);
+            this.rdbAutore.Name = "rdbAutore";
+            this.rdbAutore.Size = new System.Drawing.Size(71, 21);
+            this.rdbAutore.TabIndex = 25;
+            this.rdbAutore.TabStop = true;
+            this.rdbAutore.Text = "Autore";
+            this.rdbAutore.UseVisualStyleBackColor = true;
+            this.rdbAutore.CheckedChanged += new System.EventHandler(this.rdbAutore_CheckedChanged);
             // 
             // cmbLibri
             // 
@@ -92,6 +167,8 @@ namespace CatalogoLibri
             this.cmbLibri.Name = "cmbLibri";
             this.cmbLibri.Size = new System.Drawing.Size(121, 24);
             this.cmbLibri.TabIndex = 24;
+            this.cmbLibri.Visible = false;
+            this.cmbLibri.SelectedIndexChanged += new System.EventHandler(this.cmbLibri_SelectedIndexChanged);
             // 
             // dgvLibri
             // 
@@ -186,6 +263,7 @@ namespace CatalogoLibri
             // 
             // grpModifica
             // 
+            this.grpModifica.Controls.Add(this.ckbValidita);
             this.grpModifica.Controls.Add(this.label12);
             this.grpModifica.Controls.Add(this.listBox1);
             this.grpModifica.Controls.Add(this.lblPrezzo);
@@ -214,6 +292,43 @@ namespace CatalogoLibri
             this.grpModifica.TabStop = false;
             this.grpModifica.Text = "Modifica";
             // 
+            // ckbValidita
+            // 
+            this.ckbValidita.AutoSize = true;
+            this.ckbValidita.Location = new System.Drawing.Point(54, 443);
+            this.ckbValidita.Name = "ckbValidita";
+            this.ckbValidita.Size = new System.Drawing.Size(98, 21);
+            this.ckbValidita.TabIndex = 32;
+            this.ckbValidita.Text = "checkBox1";
+            this.ckbValidita.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(93, 221);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 17);
+            this.label12.TabIndex = 51;
+            this.label12.Text = "Autori:";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(156, 221);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(262, 100);
+            this.listBox1.TabIndex = 50;
+            // 
+            // lblPrezzo
+            // 
+            this.lblPrezzo.AutoSize = true;
+            this.lblPrezzo.Location = new System.Drawing.Point(174, 188);
+            this.lblPrezzo.Name = "lblPrezzo";
+            this.lblPrezzo.Size = new System.Drawing.Size(44, 17);
+            this.lblPrezzo.TabIndex = 49;
+            this.lblPrezzo.Text = "00.00";
+            // 
             // cmbEditori
             // 
             this.cmbEditori.Enabled = false;
@@ -225,7 +340,7 @@ namespace CatalogoLibri
             // 
             // ptbImmagine
             // 
-            this.ptbImmagine.Location = new System.Drawing.Point(225, 366);
+            this.ptbImmagine.Location = new System.Drawing.Point(225, 393);
             this.ptbImmagine.Name = "ptbImmagine";
             this.ptbImmagine.Size = new System.Drawing.Size(158, 210);
             this.ptbImmagine.TabIndex = 31;
@@ -292,107 +407,6 @@ namespace CatalogoLibri
             this.label1.TabIndex = 19;
             this.label1.Text = "Codice:";
             // 
-            // lblPrezzo
-            // 
-            this.lblPrezzo.AutoSize = true;
-            this.lblPrezzo.Location = new System.Drawing.Point(174, 188);
-            this.lblPrezzo.Name = "lblPrezzo";
-            this.lblPrezzo.Size = new System.Drawing.Size(44, 17);
-            this.lblPrezzo.TabIndex = 49;
-            this.lblPrezzo.Text = "00.00";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(156, 221);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(262, 100);
-            this.listBox1.TabIndex = 50;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(93, 221);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(49, 17);
-            this.label12.TabIndex = 51;
-            this.label12.Text = "Autori:";
-            // 
-            // rdbAutore
-            // 
-            this.rdbAutore.AutoSize = true;
-            this.rdbAutore.Location = new System.Drawing.Point(18, 582);
-            this.rdbAutore.Name = "rdbAutore";
-            this.rdbAutore.Size = new System.Drawing.Size(71, 21);
-            this.rdbAutore.TabIndex = 25;
-            this.rdbAutore.TabStop = true;
-            this.rdbAutore.Text = "Autore";
-            this.rdbAutore.UseVisualStyleBackColor = true;
-            this.rdbAutore.CheckedChanged += new System.EventHandler(this.rdbAutore_CheckedChanged);
-            // 
-            // rdbEditore
-            // 
-            this.rdbEditore.AutoSize = true;
-            this.rdbEditore.Location = new System.Drawing.Point(204, 582);
-            this.rdbEditore.Name = "rdbEditore";
-            this.rdbEditore.Size = new System.Drawing.Size(74, 21);
-            this.rdbEditore.TabIndex = 26;
-            this.rdbEditore.TabStop = true;
-            this.rdbEditore.Text = "Editore";
-            this.rdbEditore.UseVisualStyleBackColor = true;
-            this.rdbEditore.CheckedChanged += new System.EventHandler(this.rdbEditore_CheckedChanged);
-            // 
-            // rdbOfferta
-            // 
-            this.rdbOfferta.AutoSize = true;
-            this.rdbOfferta.Location = new System.Drawing.Point(112, 582);
-            this.rdbOfferta.Name = "rdbOfferta";
-            this.rdbOfferta.Size = new System.Drawing.Size(73, 21);
-            this.rdbOfferta.TabIndex = 27;
-            this.rdbOfferta.TabStop = true;
-            this.rdbOfferta.Text = "Offerta";
-            this.rdbOfferta.UseVisualStyleBackColor = true;
-            this.rdbOfferta.CheckedChanged += new System.EventHandler(this.rdbOfferta_CheckedChanged);
-            // 
-            // rdbReparto
-            // 
-            this.rdbReparto.AutoSize = true;
-            this.rdbReparto.Location = new System.Drawing.Point(294, 582);
-            this.rdbReparto.Name = "rdbReparto";
-            this.rdbReparto.Size = new System.Drawing.Size(80, 21);
-            this.rdbReparto.TabIndex = 28;
-            this.rdbReparto.TabStop = true;
-            this.rdbReparto.Text = "Reparto";
-            this.rdbReparto.UseVisualStyleBackColor = true;
-            this.rdbReparto.CheckedChanged += new System.EventHandler(this.rdbReparto_CheckedChanged);
-            // 
-            // cmbFiltro
-            // 
-            this.cmbFiltro.FormattingEnabled = true;
-            this.cmbFiltro.Location = new System.Drawing.Point(586, 579);
-            this.cmbFiltro.Name = "cmbFiltro";
-            this.cmbFiltro.Size = new System.Drawing.Size(182, 24);
-            this.cmbFiltro.TabIndex = 29;
-            this.cmbFiltro.SelectedIndexChanged += new System.EventHandler(this.cmbFiltro_SelectedIndexChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(21, 559);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(68, 17);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "Filtra per:";
-            // 
-            // lblFiltro
-            // 
-            this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Location = new System.Drawing.Point(446, 586);
-            this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(0, 17);
-            this.lblFiltro.TabIndex = 31;
-            // 
             // frmCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -447,5 +461,6 @@ namespace CatalogoLibri
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbFiltro;
+        private System.Windows.Forms.CheckBox ckbValidita;
     }
 }

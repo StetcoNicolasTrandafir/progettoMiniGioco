@@ -105,8 +105,8 @@ namespace CatalogoLibri
                 strValidita = "('', 'A')";
 
             sql = "SELECT * " +
-                "FROM Offerte " +
-                "WHERE ValOfferta IN " + strValidita;
+                "FROM Scrive " +
+                "WHERE  IN " + strValidita;
             try
             {
                 tabellaScrive = sqlScrive.eseguiQuery(sql, CommandType.Text);
@@ -120,6 +120,30 @@ namespace CatalogoLibri
             return tabellaScrive;
         }
         //string cognome, string nome, char validita
+
+
+        public DataTable hasWritten(int codAutore)
+        {
+            string strValidita = "('')";
+
+            tabellaScrive.Clear();
+
+            sql = "SELECT * " +
+                "FROM Scrive " +
+                "WHERE ValScrive IN " + strValidita+" AND IdAutScrive="+codAutore;
+            try
+            {
+                tabellaScrive = sqlScrive.eseguiQuery(sql, CommandType.Text);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Attenzione!! [lista]" + e.Message);
+            }
+
+
+            return tabellaScrive;
+        }
+
         public bool aggiungi()
         {
             bool esito = false;
@@ -148,7 +172,32 @@ namespace CatalogoLibri
             return esito;
         }
 
-        
+
+        public bool elimina(int codiceLibro)
+        {
+            bool esito = false;
+
+            sql = "UPDATE Scrive " +
+                  "SET " +
+                  "ValScrive = 'A' " +
+                  "WHERE IdLibScrive= '" + codiceLibro + "' ";
+            try
+            {
+                sqlScrive.eseguiNonQuery(sql, CommandType.Text);
+                esito = true;
+                //MessageBox.Show("Scrittura eliminata");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Attenzione!! [elimina]" + e.Message);
+            }
+
+            return esito;
+        }
+
+
+
+
         //int codice, string nome, string cognome, char validita
         public bool modifica()
         {
@@ -173,6 +222,7 @@ namespace CatalogoLibri
 
             return esito;
         }
+
 
 
         /***************************/

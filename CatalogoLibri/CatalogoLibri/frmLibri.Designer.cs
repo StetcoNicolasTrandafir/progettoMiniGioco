@@ -46,6 +46,8 @@ namespace CatalogoLibri
             this.btnInserisci = new System.Windows.Forms.Button();
             this.dgvLibri = new System.Windows.Forms.DataGridView();
             this.grpModifica = new System.Windows.Forms.GroupBox();
+            this.cmbReparto = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.cmbOfferta = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,8 +58,6 @@ namespace CatalogoLibri
             this.nmbPrezzo = new System.Windows.Forms.NumericUpDown();
             this.cmbEditori = new System.Windows.Forms.ComboBox();
             this.grpElenco = new System.Windows.Forms.GroupBox();
-            this.cmbReparto = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImmagine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibri)).BeginInit();
             this.grpModifica.SuspendLayout();
@@ -104,6 +104,7 @@ namespace CatalogoLibri
             this.ptbImmagine.Size = new System.Drawing.Size(197, 161);
             this.ptbImmagine.TabIndex = 31;
             this.ptbImmagine.TabStop = false;
+            this.ptbImmagine.MouseHover += new System.EventHandler(this.ptbImmagine_MouseHover);
             // 
             // dtpDataPubblicazione
             // 
@@ -246,6 +247,23 @@ namespace CatalogoLibri
             this.grpModifica.TabStop = false;
             this.grpModifica.Text = "Modifica";
             // 
+            // cmbReparto
+            // 
+            this.cmbReparto.FormattingEnabled = true;
+            this.cmbReparto.Location = new System.Drawing.Point(133, 90);
+            this.cmbReparto.Name = "cmbReparto";
+            this.cmbReparto.Size = new System.Drawing.Size(263, 24);
+            this.cmbReparto.TabIndex = 48;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(58, 93);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 17);
+            this.label10.TabIndex = 47;
+            this.label10.Text = "Reparto:";
+            // 
             // cmbOfferta
             // 
             this.cmbOfferta.FormattingEnabled = true;
@@ -337,23 +355,6 @@ namespace CatalogoLibri
             this.grpElenco.TabIndex = 26;
             this.grpElenco.TabStop = false;
             this.grpElenco.Text = "Elenco autori";
-            // 
-            // cmbReparto
-            // 
-            this.cmbReparto.FormattingEnabled = true;
-            this.cmbReparto.Location = new System.Drawing.Point(133, 90);
-            this.cmbReparto.Name = "cmbReparto";
-            this.cmbReparto.Size = new System.Drawing.Size(263, 24);
-            this.cmbReparto.TabIndex = 48;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(58, 93);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 17);
-            this.label10.TabIndex = 47;
-            this.label10.Text = "Reparto:";
             // 
             // frmLibri
             // 

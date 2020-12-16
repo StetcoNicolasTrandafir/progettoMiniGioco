@@ -99,6 +99,7 @@ namespace CatalogoLibri
                 txtDescrizione.Text = a.descrizione;
                 dtpDataNascita.Value = a.dataNascita;
                 //(ptbImmagine.ImageLocation).Split('\\')[1] = a.immagine;
+                ptbImmagine.ImageLocation = @"IMG/" + a.immagine;
                 if (a.validita == 'A')
                     ckbValidita.Checked = true;
                 a.dispose();
@@ -200,5 +201,17 @@ namespace CatalogoLibri
             //MessageBox.Show(nomeFile);
             ptbImmagine.ImageLocation = @"IMG\" + nomeFile;
         }
+
+        //private void ptbImmagine_MouseEnter(object sender, EventArgs e)
+        //{
+        //    ptbImmagine.Width *= 3;
+        //    ptbImmagine.Height *= 3;
+        //}
+
+        //private void ptbImmagine_MouseLeave(object sender, EventArgs e)
+        //{
+        //    ptbImmagine.Width /= 3;
+        //    ptbImmagine.Height /= 3;
+        //}
     }
 }

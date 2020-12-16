@@ -64,9 +64,9 @@ namespace CatalogoLibri
             clsLibro l = new clsLibro("CatalogoLibri.mdf");
 
             if (visualizzaAnnullati)
-                tabellaLibri = l.lista('A');
+                tabellaLibri = l.tabella('A');
             else
-                tabellaLibri = l.lista(' ');
+                tabellaLibri = l.tabella(' ');
 
             l.dispose();
 
@@ -163,10 +163,19 @@ namespace CatalogoLibri
             if (controlloCampiInput())
             {
                 clsLibro l = letturaCampiInput();
-                //MessageBox.Show(r.codReparto);
+                //MessageBox.Show(l.dataPubblicazione.ToString());
 
                 if (btnConferma.Text == "Conferma")
+                {
                     l.modifica();
+                    if(l.validita=='A')
+                    {
+                        clsScrive s = new clsScrive("CatalogoLibri.mdf");
+                        s.elimina(l.codLibro);
+                        s.dispose();
+                    }    
+                }
+                    
                 else
                     l.aggiungi();
 
@@ -182,10 +191,11 @@ namespace CatalogoLibri
             l.codLibro = Convert.ToInt32(lblCodice.Text);
             l.codEditore = Convert.ToInt32(cmbEditori.SelectedValue);
             l.codOfferta = Convert.ToInt32(cmbOfferta.SelectedValue);
-            l.codReparto = cmbEditori.SelectedValue.ToString();
+            l.codReparto = cmbReparto.SelectedValue.ToString();
             l.immagine= (ptbImmagine.ImageLocation).Split('\\')[1];
             l.prezzo = Convert.ToInt32(nmbPrezzo.Value);
             l.titolo = txtTitolo.Text;
+            l.dataPubblicazione = dtpDataPubblicazione.Value;
 
             if (ckbValidita.Checked)
                 l.validita = 'A';
@@ -255,6 +265,12 @@ namespace CatalogoLibri
             string nomeFile = path[path.Length - 1];
             //MessageBox.Show(nomeFile);
             ptbImmagine.ImageLocation = @"IMG\" + nomeFile;
+        }
+
+        private void ptbImmagine_MouseHover(object sender, EventArgs e)
+        {
+            ptbImmagine.Width = ptbImmagine.Width * 3;
+            ptbImmagine.Height = ptbImmagine.Height * 3;
         }
 
         private void cmbOfferta_SelectedIndexChanged_1(object sender, EventArgs e)

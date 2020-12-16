@@ -17,6 +17,7 @@ namespace CatalogoLibri
         DataTable tabellaLibri;
         double scontoCorrente = 0;
         string stringaFiltro;
+        string campoFiltro = string.Empty;
 
 
         public frmCatalogo()
@@ -38,7 +39,7 @@ namespace CatalogoLibri
             selezionaLibro = true;
             ed.dispose();
 
-            stringaFiltro = " AND IdEdiLibro ='";
+            campoFiltro = " AND IdEdiLibro ='";
         }
 
         private void rdbAutore_CheckedChanged(object sender, EventArgs e)
@@ -55,7 +56,7 @@ namespace CatalogoLibri
             selezionaLibro = true;
             a.dispose();
 
-            //stringaFiltro = " AND IdAutoreLibro ='";
+            //campoFiltro = " AND IdAutoreLibro ='";
         }
 
         private void rdbReparto_CheckedChanged(object sender, EventArgs e)
@@ -72,7 +73,7 @@ namespace CatalogoLibri
             selezionaLibro = true;
             r.dispose();
 
-            stringaFiltro = " AND CodRepLibro ='";
+            campoFiltro = " AND CodRepLibro ='";
         }
 
         private void rdbOfferta_CheckedChanged(object sender, EventArgs e)
@@ -89,7 +90,7 @@ namespace CatalogoLibri
             selezionaLibro = true;
             o.dispose();
 
-            stringaFiltro = " AND IdOffLibro ='";
+            campoFiltro = " AND IdOffLibro ='";
         }
 
         private void frmCatalogo_Load(object sender, EventArgs e)
@@ -135,9 +136,9 @@ namespace CatalogoLibri
             clsLibro l = new clsLibro("CatalogoLibri.mdf");
 
             if (visualizzaAnnullati)
-                tabellaLibri = l.lista('A');
+                tabellaLibri = l.tabella('A');
             else
-                tabellaLibri = l.lista(' ');
+                tabellaLibri = l.tabella(' ');
 
             l.dispose();
 
@@ -154,27 +155,69 @@ namespace CatalogoLibri
 
         private void cmbFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbFiltro.SelectedIndex == -1)
-                stringaFiltro = string.Empty;
-            else
-                stringaFiltro += cmbFiltro.SelectedValue.ToString() + "'";
+            if (selezionaLibro)
+            {
+                if (cmbFiltro.SelectedIndex == -1)
+                    stringaFiltro = string.Empty;
+                else
+                {
+                    if (!rdbAutore.Checked)
+                    {
+                        stringaFiltro = campoFiltro + cmbFiltro.SelectedValue.ToString() + "'";
+                        clsLibro l = new clsLibro("CatalogoLibri.mdf");
+                        tabellaLibri = l.filtra(stringaFiltro);
+                        l.dispose();
+                    }
+                    else
+                    {
+                        clsLibro l = new clsLibro("CatalogoLibri.mdf");
+                        tabellaLibri = l.hasWritten(' ',Convert.ToInt32(cmbFiltro.SelectedValue));
+                        l.dispose();
+                    }
+                }
+                    
+                selezionaLibro = false;
 
 
-            clsLibro l = new clsLibro("CatalogoLibri.mdf");
-            tabellaLibri = l.filtra(stringaFiltro);
+                cmbLibri.DataSource = tabellaLibri;
+                cmbLibri.ValueMember = "IdLibro";
+                cmbLibri.DisplayMember = "TitoloLibro";
+                cmbLibri.SelectedIndex = -1;
 
-            selezionaLibro = false;
-            
+                dgvLibri.DataSource = tabellaLibri;
+                dgvLibri.ClearSelection();
 
-            cmbLibri.DataSource = tabellaLibri;
-            cmbLibri.ValueMember = "IdLibro";
-            cmbLibri.DisplayMember = "TitoloLibro";
-            cmbLibri.SelectedIndex = -1;
+                selezionaLibro = true;
+            }
+        }
 
-            dgvLibri.DataSource = tabellaLibri;
-            dgvLibri.ClearSelection();
+        private void cmbLibri_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (selezionaLibro && cmbLibri.SelectedIndex != -1)
+            {
+                selezionaCombo = false;
+                caricamentoComboBox('A'); //da ripensare
+                selezionaCombo = true;
 
-            selezionaLibro = true;
+                grpElenco.Enabled = false;
+                grpModifica.Enabled = true;
+                lblCodice.Text = cmbLibri.SelectedValue.ToString();
+
+
+                clsLibro l = new clsLibro("CatalogoLibri.mdf");
+                l.codLibro = Convert.ToInt32(cmbLibri.SelectedValue);
+                l.getDati();
+                txtTitolo.Text = l.titolo;
+                cmbReparto.SelectedValue = l.codReparto;
+                cmbEditori.SelectedValue = l.codEditore;
+                cmbOfferta.SelectedValue = l.codOfferta;
+                lblPrezzo.Text= l.prezzo.ToString();
+                (ptbImmagine.ImageLocation).Split('\\')[1] = l.immagine;
+                if (l.validita == 'A')
+                    ckbValidita.Checked = true;
+                l.dispose();
+
+            }
         }
 
         private void annulla()
