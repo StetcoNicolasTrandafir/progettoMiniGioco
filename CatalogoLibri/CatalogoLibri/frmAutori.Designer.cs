@@ -174,8 +174,6 @@ namespace CatalogoLibri
             this.ptbImmagine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbImmagine.TabIndex = 31;
             this.ptbImmagine.TabStop = false;
-            this.ptbImmagine.MouseEnter += new System.EventHandler(this.ptbImmagine_MouseEnter);
-            this.ptbImmagine.MouseLeave += new System.EventHandler(this.ptbImmagine_MouseLeave);
             // 
             // dtpDataNascita
             // 

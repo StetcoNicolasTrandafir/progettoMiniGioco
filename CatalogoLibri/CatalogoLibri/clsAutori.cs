@@ -121,6 +121,30 @@ namespace CatalogoLibri
             _valAutore = ' ';
         }
 
+        public DataTable hannoScritto(int codLibro)
+        {
+            string strValidita = "('')";
+
+            tabellaAutori.Clear();
+
+
+            sql = "SELECT Autori.IdAutore, Autori.CognAutore, Autori.NomeAutore " +
+                "FROM Autori " +
+                "INNER JOIN Scrive ON (IdLibScrive= "+codLibro+" AND IdAutore=IdAutScrive and ValScrive IN " + strValidita + ")";
+
+            try
+            {
+                tabellaAutori = sqlAutori.eseguiQuery(sql, CommandType.Text);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Attenzione!! [hannoScritto]" + e.Message);
+            }
+
+
+            return tabellaAutori;
+        }
+
         public DataTable lista(char validita)
         {
             string strValidita = "('')";
@@ -145,6 +169,8 @@ namespace CatalogoLibri
 
             return tabellaAutori;
         }
+
+
         //string cognome, string nome, char validita
         public bool aggiungi()
         {

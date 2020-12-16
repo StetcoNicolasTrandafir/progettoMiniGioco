@@ -16,7 +16,7 @@ namespace CatalogoLibri
         bool selezionaLibro = true, selezionaCombo = false;
         DataTable tabellaLibri;
         double scontoCorrente = 0;
-
+        DataTable tabellaAutori = new DataTable();
 
 
         public frmLibri()
@@ -57,6 +57,13 @@ namespace CatalogoLibri
             cmbReparto.ValueMember = "CodReparto";
             cmbReparto.SelectedIndex = -1;
             r.dispose();
+
+
+            clsAutori a = new clsAutori("CatalogoLibri.mdf");
+            tabellaAutori=a.lista(val);
+            for (int i = 0; i < tabellaAutori.Rows.Count; i++)
+                cklAutori.Items.Add(tabellaAutori.Rows[i].ItemArray[0].ToString()+"\t"+ tabellaAutori.Rows[i].ItemArray[1]+"\t"+tabellaAutori.Rows[i].ItemArray[2]);
+            a.dispose();
         }
 
         private void elencoLibri(bool visualizzaAnnullati)
@@ -82,7 +89,7 @@ namespace CatalogoLibri
         }
 
         private void btnAnnulla_Click(object sender, EventArgs e)
-        {
+        {   
             annulla();
         }
 
@@ -101,6 +108,7 @@ namespace CatalogoLibri
             nmbPrezzo.Value = 0;
             lblPrezzoScontato.Text = "00.00";
             btnConferma.Text = "Conferma";
+            cklAutori.Items.Clear();
         }
 
         private void btnInserisci_Click(object sender, EventArgs e)
@@ -145,16 +153,42 @@ namespace CatalogoLibri
                 clsLibro l = new clsLibro("CatalogoLibri.mdf");
                 l.codLibro = Convert.ToInt32(cmbLibri.SelectedValue);
                 l.getDati();
+
+                clsAutori a = new clsAutori("CatalogoLibri.mdf");
+                DataTable autoriSelezionati = a.hannoScritto(l.codLibro);
+                bool presente;
+                int codAut;
+                int codAutSelezionato;
+                for (int i=0; i< tabellaAutori.Rows.Count; i++)
+                {
+                    presente = false;
+                    
+                    codAut = Convert.ToInt32(tabellaAutori.Rows[i].ItemArray[0]);
+                    for (int j = 0; j < autoriSelezionati.Rows.Count; j++)
+                    {
+                        codAutSelezionato = Convert.ToInt32(autoriSelezionati.Rows[j].ItemArray[0]);
+                        if (codAutSelezionato == codAut)
+                            presente = true;
+                    }
+                        
+                    if (presente)
+                        cklAutori.SetItemChecked(i, true);
+                }
+
+                //DataTable tabSelezionati = a.hannoScritto(l.codLibro);
+                a.dispose();
+
                 txtTitolo.Text = l.titolo;
                 cmbReparto.SelectedValue = l.codReparto;
                 cmbEditori.SelectedValue = l.codEditore;
                 cmbOfferta.SelectedValue = l.codOfferta; 
                 nmbPrezzo.Value = l.prezzo;
-                (ptbImmagine.ImageLocation).Split('\\')[1] = l.immagine;
+                ptbImmagine.ImageLocation= @"IMG\"+l.immagine;
+                //MessageBox.Show(ptbImmagine.ImageLocation.ToString());
                 if (l.validita == 'A')
                     ckbValidita.Checked = true;
                 l.dispose();
-
+               
             }
         }
 
@@ -164,20 +198,28 @@ namespace CatalogoLibri
             {
                 clsLibro l = letturaCampiInput();
                 //MessageBox.Show(l.dataPubblicazione.ToString());
+                int[] v = new int[cklAutori.CheckedItems.Count];
+
+                for (int i = 0; i < cklAutori.CheckedItems.Count; i++)
+                {
+                    v[i] = Convert.ToInt32((cklAutori.CheckedItems[i].ToString()).Split('\t')[0]);
+                    //MessageBox.Show(v[i].ToString());
+                }
 
                 if (btnConferma.Text == "Conferma")
                 {
-                    l.modifica();
+                    l.modifica(v);
                     if(l.validita=='A')
                     {
                         clsScrive s = new clsScrive("CatalogoLibri.mdf");
+                        
                         s.elimina(l.codLibro);
                         s.dispose();
                     }    
                 }
                     
                 else
-                    l.aggiungi();
+                    l.aggiungi(v);
 
                 elencoLibri(ckbVisualizzaAnnullati.Checked);
                 l.dispose();
@@ -221,6 +263,16 @@ namespace CatalogoLibri
             {
                 MessageBox.Show("Scegli un editore!");
                 cmbEditori.Focus();
+                return false;
+            }else if (nmbPrezzo.Value==0)
+            {
+                MessageBox.Show("Scegli un prezzo valido!");
+                nmbPrezzo.Focus();
+                return false;
+            }
+            else if (cklAutori.CheckedItems.Count==0)
+            {
+                MessageBox.Show("Inserisci l'/gli autore/i!");
                 return false;
             }
             else if (cmbOfferta.SelectedIndex == -1)

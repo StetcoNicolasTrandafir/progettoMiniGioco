@@ -46,6 +46,8 @@ namespace CatalogoLibri
             this.btnInserisci = new System.Windows.Forms.Button();
             this.dgvLibri = new System.Windows.Forms.DataGridView();
             this.grpModifica = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cklAutori = new System.Windows.Forms.CheckedListBox();
             this.cmbReparto = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbOfferta = new System.Windows.Forms.ComboBox();
@@ -93,7 +95,7 @@ namespace CatalogoLibri
             this.btnConferma.Name = "btnConferma";
             this.btnConferma.Size = new System.Drawing.Size(175, 60);
             this.btnConferma.TabIndex = 32;
-            this.btnConferma.Text = "Inserisci autore";
+            this.btnConferma.Text = "Inserisci libro";
             this.btnConferma.UseVisualStyleBackColor = false;
             this.btnConferma.Click += new System.EventHandler(this.btnConferma_Click);
             // 
@@ -201,7 +203,7 @@ namespace CatalogoLibri
             this.btnInserisci.Name = "btnInserisci";
             this.btnInserisci.Size = new System.Drawing.Size(175, 60);
             this.btnInserisci.TabIndex = 22;
-            this.btnInserisci.Text = "Inserisci autore";
+            this.btnInserisci.Text = "Inserisci libro";
             this.btnInserisci.UseVisualStyleBackColor = false;
             this.btnInserisci.Click += new System.EventHandler(this.btnInserisci_Click);
             // 
@@ -217,6 +219,8 @@ namespace CatalogoLibri
             // 
             // grpModifica
             // 
+            this.grpModifica.Controls.Add(this.label11);
+            this.grpModifica.Controls.Add(this.cklAutori);
             this.grpModifica.Controls.Add(this.cmbReparto);
             this.grpModifica.Controls.Add(this.label10);
             this.grpModifica.Controls.Add(this.cmbOfferta);
@@ -246,6 +250,23 @@ namespace CatalogoLibri
             this.grpModifica.TabIndex = 27;
             this.grpModifica.TabStop = false;
             this.grpModifica.Text = "Modifica";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(26, 214);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 17);
+            this.label11.TabIndex = 50;
+            this.label11.Text = "Autori:";
+            // 
+            // cklAutori
+            // 
+            this.cklAutori.FormattingEnabled = true;
+            this.cklAutori.Location = new System.Drawing.Point(85, 214);
+            this.cklAutori.Name = "cklAutori";
+            this.cklAutori.Size = new System.Drawing.Size(372, 106);
+            this.cklAutori.TabIndex = 49;
             // 
             // cmbReparto
             // 
@@ -354,7 +375,7 @@ namespace CatalogoLibri
             this.grpElenco.Size = new System.Drawing.Size(790, 638);
             this.grpElenco.TabIndex = 26;
             this.grpElenco.TabStop = false;
-            this.grpElenco.Text = "Elenco autori";
+            this.grpElenco.Text = "Elenco libri";
             // 
             // frmLibri
             // 
@@ -408,5 +429,7 @@ namespace CatalogoLibri
         private System.Windows.Forms.Label lblPrezzoScontato;
         private System.Windows.Forms.ComboBox cmbReparto;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckedListBox cklAutori;
+        private System.Windows.Forms.Label label11;
     }
 }

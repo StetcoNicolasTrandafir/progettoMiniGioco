@@ -192,8 +192,9 @@ namespace CatalogoLibri
             return tabellaLibri;
         }
 
+        
 
-        public DataTable hasWritten(char validita, int codAutore)
+        public DataTable filtraPerAutore(char validita, int codAutore)
         {
             string strValidita = "('')";
 
@@ -215,7 +216,7 @@ namespace CatalogoLibri
             }
             catch (Exception e)
             {
-                MessageBox.Show("Attenzione!! [lista]" + e.Message);
+                MessageBox.Show("Attenzione!! [filtraPerAutore]" + e.Message);
             }
 
 
@@ -245,7 +246,7 @@ namespace CatalogoLibri
         }
 
         //string cognome, string nome, char validita
-        public bool aggiungi()
+        public bool aggiungi(int [] autori)
         {
             bool esito = false;
 
@@ -269,6 +270,17 @@ namespace CatalogoLibri
                     sqlLibri.eseguiNonQuery(sql, CommandType.Text);
                     esito = true;
                     MessageBox.Show("Libro inserito con successo.");
+
+                    clsScrive s = new clsScrive("CatalogoLibri.mdf");
+                    s.codLibro = getNuovoCodice()-1;
+                    
+                    for (int i=0; i< autori.Length; i++)
+                    {
+                        s.codAutore = autori[i];
+                        s.aggiungi();
+                    }
+                    s.dispose();
+
                 }
                 catch (Exception e)
                 {
@@ -315,7 +327,7 @@ namespace CatalogoLibri
             return esito;
         }
         //int codice, string nome, string cognome, char validita
-        public bool modifica()
+        public bool modifica(int[] vAutori)
         {
             bool esito = false;
 
@@ -337,7 +349,14 @@ namespace CatalogoLibri
                 MessageBox.Show("Libro modificato con successo.");
 
                 clsScrive s = new clsScrive("CatalogoLibri.mdf");
-
+                s.eliminaRecord(_codLibro);
+                s.codLibro = _codLibro;
+                s.validita = 'A';
+                for (int i=0; i<vAutori.Length; i++)
+                {
+                    s.codAutore = vAutori[i];
+                    s.aggiungi();
+                } 
                 s.dispose();
             }
             catch (Exception e)
@@ -347,31 +366,7 @@ namespace CatalogoLibri
 
             return esito;
         }
-        //int codice, char validita
-        public bool cancella()
-        {
-            bool esito = false;
 
-            sql = "UPDATE Libri " +
-                  "SET " +
-                  "ValLibro = '" + _valLibro + "' " +
-                  "WHERE ValLibro = '" + _codLibro + "' ";
-            try
-            {
-                sqlLibri.eseguiNonQuery(sql, CommandType.Text);
-                esito = true;
-                if (_valLibro == 'A')
-                    MessageBox.Show("Libro cancellato con successo.");
-                else
-                    MessageBox.Show("Libro ripristinato con successo.");
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Attenzione!! [cancella]" + e.Message);
-            }
-
-            return esito;
-        }
 
         /***************************/
         /* Recupera singola Entità */

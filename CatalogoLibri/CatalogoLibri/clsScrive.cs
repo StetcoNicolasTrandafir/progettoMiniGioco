@@ -21,19 +21,19 @@ namespace CatalogoLibri
         private DataTable tabellaScrive = new DataTable();
 
 
-        public int codOfferta
+        public int codScrive
         {
             get { return _codScrive; }
             set { _codScrive = value; }
         }
 
-        public int descrizione
+        public int codLibro
         {
             get { return _codLibro; }
             set { _codLibro = value; }
         }
 
-        public int sconto
+        public int codAutore
         {
             get { return _codAutore; }
             set { _codAutore = value; }
@@ -155,7 +155,7 @@ namespace CatalogoLibri
                         "( IdLibScrive, IdAutScrive, ValScrive) " +
                         "VALUES(" + "'" + _codLibro + "'," +
                                     "'" + _codAutore + "'," +
-                                    "'" + _validita + "')";
+                                    "' ')";
 
                 try
                 {
@@ -189,13 +189,28 @@ namespace CatalogoLibri
             }
             catch (Exception e)
             {
-                MessageBox.Show("Attenzione!! [elimina]" + e.Message);
+                MessageBox.Show("Attenzione!! [cancella]" + e.Message);
             }
 
             return esito;
         }
 
+        public void eliminaRecord(int codiceLibro)
+        {
 
+            sql = "DELETE FROM " +
+                  "Scrive " +
+                  "WHERE IdLibScrive= '" + codiceLibro + "' ";
+            try
+            {
+                sqlScrive.eseguiNonQuery(sql, CommandType.Text);
+                //MessageBox.Show("Scrittura eliminata");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Attenzione!! [eliminaRecord]" + e.Message);
+            }
+        }
 
 
         //int codice, string nome, string cognome, char validita
