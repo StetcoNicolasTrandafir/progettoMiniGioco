@@ -1,0 +1,34 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	padding: 30px;
+}
+
+
+.rubbish{
+	background-color: green;
+	height: 50px;
+	width: 50px;
+}
+
+
+.asterodie{
+	background-color: brown;
+	height: 30px;
+	width: 30px;
+}
+
+#campoGioco{
+	position: relative;
+	width: 100%;
+	height: 600px;
+	background-color: blue;
+	padding: 0;
+	overflow: hidden;
+}
+#campoGioco div{
+	position: absolute;
+}
